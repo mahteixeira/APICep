@@ -9,4 +9,4 @@
 
     include 'Controller/Controller.php';
 
-    API_CEP\Controller\Controller::GetResponseAsJson($cidades);
+    //API_CEP\Controller\Controller::GetResponseAsJson($cidades);
