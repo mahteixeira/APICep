@@ -1,8 +1,9 @@
 <?php 
+namespace Api_Cep\DAO;
 
 use Exception;
-use \PDO;
-use PDOExeception;
+use PDO;
+use PDOException;
 
 abstract class DAO extends PDO
 {
@@ -17,7 +18,7 @@ abstract class DAO extends PDO
                 PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
             ];
 
-            $dns = "mysql:hosts" . $_ENV['db']['host'] . ";dbname=" . $_ENV['db']['database'];
+            $dns = "mysql:host" . $_ENV['db']['host'] . ";dbname=" . $_ENV['db']['database'];
 
             $this->conexao = new PDO($dns, $_ENV['db']['user'], $_ENV['db']['pass'], $options);
         }
