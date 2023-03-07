@@ -1,34 +1,29 @@
 <?php
 
-    namespace API_CEP\Controller;
+namespace Api_Cep\Controller;
 
-    use API_CEP\Model\{ EnderecoModel, CidadeModel };
-    use Exception;
+use Api_Cep\Model\{EnderecoModel, CidadeModel};
+use Exception;
 
-    class EnderecoController extends Controller
-    { 
-        public static function GetCepByLogradouro() : void
-        {
+class EnderecoController extends Controller
+{
+    public static function GetCepByLogradouro(): void
+    {
+    }
 
-        }
+    public static function GetLogradouroByBairroAndCidade(): void
+    {
+    }
 
-        public static function GetLogradouroByBairroAndCidade() : void
-        {
+    public static function GetLogradouroByCep(): void
+    {
+    }
 
-        }
+    public static function GetBairroByIdCidade(): void
+    {
+    }
 
-        public static function GetLogradouroByCep() : void
-        {
-            
-        }
-
-        public static function GetBairroByIdCidade() : void
-        {
-            
-        }
-
-        public static function GetCidadesByUF() : void
-        {
-            
-        }
-    };
+    public static function GetCidadesByUF(): void
+    {
+    }
+};
