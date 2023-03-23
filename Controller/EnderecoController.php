@@ -25,17 +25,74 @@ class EnderecoController extends Controller
 
     public static function GetLogradouroByBairroAndCidade(): void
     {
+        try
+        {
+            $bairro = parent::GetStringFromUrl(
+                isset($_GET['bairro']) ? $_GET['bairro'] : null, 'bairro');
+
+            $id_cidade = parent::GetIntFromUrl(
+                isset($_GET['id_cidade']) ? $_GET['id_cidade'] : null, 'cep');
+
+            $model = new EnderecoModel();
+
+            $model -> getLogradouroByBairroAndCidade($bairro, $id_cidade);
+
+            parent::GetResponseAsJson($model->rows);
+
+        }catch (Exception $e)
+        {
+            parent::GetExceptionAsJson($e);
+        }
     }
 
     public static function GetLogradouroByCep(): void
     {
+        try
+          {
+            $cep = parent::GetIntFromUrl(isset($_GET['cep']) ? $_GET['cep'] : null);
+
+            $model = new EnderecoModel();
+
+            parent::GetResponseAsJson($model->getLogradouroByCep($cep));
+
+          }catch (Exception $e)
+          {
+            parent::GetExceptionAsJson($e);
+          }  
     }
 
     public static function GetBairroByIdCidade(): void
     {
+        try
+           {
+                $id_cidade = parent::GetIntFromUrl(
+                    isset($_GET['id_cidade']) ? $_GET['id_cidade'] : null);
+
+                $model = new EnderecoModel();
+                $model->getBairrosByIdCidade($id_cidade);
+
+                parent::GetResponseAsJson($model->rows);
+
+            }catch (Exception $e)
+           {
+            parent::GetExceptionAsJson($e);
+           } 
     }
 
     public static function GetCidadesByUF(): void
     {
+        try
+        {
+            $uf = $_GET['uf'];
+
+            $model = new EnderecoModel();
+            //$model->getCidadesByUF($uf);
+
+            parent::GetResponseAsJson($model->rows);
+
+        }catch (Exception $e)
+        {
+         parent::GetExceptionAsJson($e);
+        } 
     }
 };
